@@ -1,0 +1,129 @@
+//employee token
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+//admin token
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaXlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicHJpeWFAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1NTV9.ddfOfEpJzuFUXPVgRJEk6BsXepyy1sT_8ImWUb6zTSc
+
+//superadmin token
+//eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsYW1AZ21haWwuY29tIiwicGFzc3dvcmQiOiJhbGFtQDEyMyIsImlzU0FkbWluIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1ODR9.7haQLAkgmsJuLqGv_-J1XaPmiRpE2TA_lPrZ-YcntN8
+
+//register new user
+POST  http://localhost:3003/register
+Content-Type: application/json
+
+{
+    "name":"Niharika",
+    "age":23,
+    "skills":"html,css,nodejs",
+    "email":"niharika@gmail.com",
+    "password":"niharika@123",
+    "mobile":"123456",
+    "gdo":"GDO2",
+    "role":"Employee"
+}
+
+//login for employee
+
+POST  http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email":"niharika@gmail.com",
+    "password":"niharika@123"
+    
+}
+
+//login for admin
+
+POST  http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email":"priya@gmail.com",
+    "password":"priya@123"
+    
+}
+
+//login for Superadmin
+
+POST  http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email":"alam@gmail.com",
+    "password":"alam@123"
+    
+}
+       
+//employee logins and views the latest month goals
+
+GET http://localhost:3003/usergoals/monthly/userid/?user_id=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+//super admin is trying to view details of employees
+GET http://localhost:3003/users/employees
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsYW1AZ21haWwuY29tIiwicGFzc3dvcmQiOiJhbGFtQDEyMyIsImlzU0FkbWluIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1ODR9.7haQLAkgmsJuLqGv_-J1XaPmiRpE2TA_lPrZ-YcntN8
+
+//super admin is trying to view all admins
+
+GET http://localhost:3003/users/admins
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsYW1AZ21haWwuY29tIiwicGFzc3dvcmQiOiJhbGFtQDEyMyIsImlzU0FkbWluIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1ODR9.7haQLAkgmsJuLqGv_-J1XaPmiRpE2TA_lPrZ-YcntN8
+
+//employee trying to view users shows only admin is allowed to view
+GET http://localhost:3003/users/user 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaWF0IjoxNjU0MDYxMDgxfQ.JaV7vfV5596vzBxb_PMStk_bXwgTtxhU0hpWiaBaKm4
+
+
+//super admin getting all user goals
+
+GET http://localhost:3003/usergoals/usergoal
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFsYW1AZ21haWwuY29tIiwicGFzc3dvcmQiOiJhbGFtQDEyMyIsImlzU0FkbWluIjp0cnVlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1ODR9.7haQLAkgmsJuLqGv_-J1XaPmiRpE2TA_lPrZ-YcntN8
+
+//when other than super admin is trying to view all goals it shows error
+GET http://localhost:3003/usergoals/usergoal
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaWF0IjoxNjU0MDYxMDgxfQ.JaV7vfV5596vzBxb_PMStk_bXwgTtxhU0hpWiaBaKm4
+
+//employee is posting a goal
+
+POST  http://localhost:3003/usergoals/usergoal
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+{
+    "user_id":1,
+    "goal_name":"learning about fullstack"  ,
+    "created_date":"2021-05-07" 
+}
+
+//particular employee can view his goals based on user id
+GET http://localhost:3003/usergoals/userid/?user_id=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+GET http://localhost:3003/usergoals/userid/month/?user_id=1&month=07
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+//particular user can update his status of the goal based on usergoal id
+PUT  http://localhost:3003/usergoals/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+{
+    "id":2
+}
+
+//particular user can delete his  goal based on usergoal id
+
+DELETE   http://localhost:3003/usergoals/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im5paGFyaWthQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoibmloYXJpa2FAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjpmYWxzZSwiaXNFbXBsb3llZSI6dHJ1ZSwiaWF0IjoxNjU0MDc1NTE4fQ.hwA-EAjDALNtN3ysK56q5jcQaja1tep7JsuUPMwUfHM
+
+{
+    "id":2
+}
+
+//getting employee details who are working under a particular admin  based on admin id
+
+GET http://localhost:3003/users/?id=10
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InByaXlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoicHJpeWFAMTIzIiwiaXNTQWRtaW4iOmZhbHNlLCJpc0FkbWluIjp0cnVlLCJpc0VtcGxveWVlIjp0cnVlLCJpYXQiOjE2NTQwNzU1NTV9.ddfOfEpJzuFUXPVgRJEk6BsXepyy1sT_8ImWUb6zTSc
+
+GET http://localhost:3003/usergoals/month
