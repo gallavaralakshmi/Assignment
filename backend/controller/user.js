@@ -17,7 +17,7 @@ async function getAllAdmins(){
         where:{
             role:'Admin'
         },
-        attributes:['name','email','mobile','gdo','role']
+        attributes:['id','name','email','mobile','gdo','role']
     })
 }
 
@@ -29,7 +29,7 @@ async function getAllUsersunderGdo(gdo,role){
             [Op.ne]:role
             }
         },
-        attributes:['name','email','mobile','gdo','role']
+        attributes:['id','name','email','mobile','gdo','role']
     })
 }
 

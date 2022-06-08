@@ -30,7 +30,7 @@ router.get("/admins",verifyToken.isSAdmin,async(req,res)=>{
     }
 });
 
-router.get("/",verifyToken.isAdmin,async(req,res)=>{
+router.get("/employeesunderadmin",verifyToken.isAdmin,async(req,res)=>{
     try{
         const id=req.query.id;
         const givenUser=await db.users.findOne({where:{id}});

@@ -60,7 +60,7 @@ router.post("/",jsonParser,validate,async(req,res,next)=>{
             res.json({jwt:token,details:givenUser});
         }
         else{
-            res.json({
+            res.status(400).json({
                 message:'Password is not valid'
             })
         }

@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from 'react';
 import { Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Login from "../../Login/Login";
-import Register from "../../Register/Register";
+
 const Header = () => {
   const navigate=useNavigate();
 return(

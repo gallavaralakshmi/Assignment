@@ -28,10 +28,10 @@ const Login = (props) => {
                 console.log(`response:${JSON.stringify(response)}`);
                 console.log(`role:${response.data.details.role}`);
                 if(response.data.jwt&&response.data.details.role=="SAdmin"){
-                    navigate("/employees")
+                    navigate("/superadmin")
                 }
                 else if(response.data.jwt&&response.data.details.role=="Admin"){
-                    navigate("/employees")
+                    navigate("/admins")
                 }
                 else if(response.data.jwt&&response.data.details.role=="Employee"){
                     navigate("/employees")
@@ -82,15 +82,16 @@ const Login = (props) => {
                     <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)} />
                     <p>{passwordError}</p>
                 </div>
+                <div className="login-field"> 
+                <p>{userError}</p>
+                </div>
                 <div className="login-user-not">
                     <p onClick={() => { props.setType("register") }}>Not a user?Sign up here</p>
                 </div>
                 <div className="login-button">
                     <button type="submit" >Login</button>
                 </div>
-                <div className="login-field"> 
-                <p>{userError}</p>
-                </div>
+              
 
             </form>
             <p style={{ height: "600px" }}></p>

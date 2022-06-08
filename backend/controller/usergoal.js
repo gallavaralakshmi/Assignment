@@ -1,3 +1,4 @@
+const { status } = require("express/lib/response");
 const { Sequelize, sequelize } = require("../models");
 
 const Usergoals=require("../models").usergoals;
@@ -22,7 +23,7 @@ async function getAllGoalsofGivenId(user_id){
         {where:{
             user_id:user_id
         },
-        attributes:['goal_name','status']
+        attributes:['id','goal_name','status','created_date']
     },
     )
 }
@@ -66,9 +67,21 @@ async function getAllGoalsofGivenIdandMonth(user_id){
     )
 }
 */
-async function updateStatusOfUsergoal(id){
+async function updateStatusOfUsergoal(id,status){
     return Usergoals.update({
-        status:"In Progrss",
+        status:status,
+    },
+    {
+        where:{id:id}
+    })
+
+
+}
+
+async function updateUsergoal(id,goal_name,status){
+    return Usergoals.update({
+        goal_name:goal_name,
+        status:status,
     },
     {
         where:{id:id}
@@ -87,12 +100,14 @@ async function deleteUsergoal(id){
 async function createUsergoal({
     user_id,
     goal_name,
+    status,
     created_date
 }){
     return Usergoals.create({
        user_id:user_id,
        goal_name:goal_name,
+       status,
        created_date:created_date
     });
 }
-module.exports={getAllUsergoals,createUsergoal,getAllGoalsofGivenId,updateStatusOfUsergoal,deleteUsergoal,getAllGoalsofGivenIdlatestmonth};
+module.exports={getAllUsergoals,createUsergoal,getAllGoalsofGivenId,updateStatusOfUsergoal,updateUsergoal,deleteUsergoal,getAllGoalsofGivenIdlatestmonth};
