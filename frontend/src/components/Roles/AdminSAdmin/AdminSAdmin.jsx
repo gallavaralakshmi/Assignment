@@ -23,7 +23,7 @@ const AdminSAdmin=(props)=>{
     return(
         <>
            {employees.length==0?<span>No Employees under you</span>:
-           <div> <h3>Employees under {userobject.name} are:</h3>
+           <div> <h3 className="click-links">Employees under {userobject.name} are:</h3>
         <table>
            
             <thead>
@@ -36,7 +36,7 @@ const AdminSAdmin=(props)=>{
                     <td>{employee.name}</td>
                     <td style={{textDecoration:"underline",cursor:"pointer"}} onClick={()=>{
                         console.log(`employee id:${employee.id} ${employee.name}`);
-                    navigate("/viewgoals",{state:{id:employee.id,name:employee.name}})}}
+                    navigate("/viewgoals",{state:{id:employee.id,name:employee.name,month:6}})}}
                     >View Goals</td>
                 </tr>
                 ))}

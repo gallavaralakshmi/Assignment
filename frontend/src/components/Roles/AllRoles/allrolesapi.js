@@ -1,5 +1,6 @@
-async function getGoals(id){
+async function getGoals(id,month){
     console.log("inside getgoals  function")
+    console.log(`id=${id} and month=${month}`);
     console.log(id);
     console.log(typeof(id));
     console.log(`authToken:${localStorage.getItem("authToken")}`);
@@ -9,7 +10,7 @@ async function getGoals(id){
         },
         method:"GET",
     };
-    return fetch(`usergoals/userid/?user_id=${id}`,requestedOptions)
+    return fetch(`usergoals/userid/month/?user_id=${id}&month=${month}`,requestedOptions)
     .then((response)=>response.json())
     .catch((error)=>error)
 }

@@ -86,11 +86,11 @@ router.get("/monthly/userid",verifyToken.isEmployee,async(req,res)=>{
         })
     }
 });
-/*
+
 router.get("/userid/month",verifyToken.isEmployee,async(req,res)=>{
     try{
-        console.log(`usergoals router given userid:${req.query.user_id}`)
-        const goals=await usergoalController.getAllGoalsofGivenIdandMonth(req.query);
+        console.log(`usergoals router given userid:${req.query.user_id} ${req.query.month}`)
+        const goals=await usergoalController.getAllGoalsofGivenIdandMonth(req.query.user_id,req.query.month);
         res.json(goals);
     }
     catch(err){
@@ -101,20 +101,7 @@ router.get("/userid/month",verifyToken.isEmployee,async(req,res)=>{
 });
 
 
-router.get("/month",async(req,res)=>{
-    try{
-        console.log(`usergoals router given month`)
-        const months=await usergoalController.getMonth(req.query);
-        res.json(months);
-    }
-    catch(err){
-        res.json({
-            error:err.toString(),
-        })
-    }
-});
 
-*/
 
 router.put("/updatestatusofgoal",jsonParser,verifyToken.isEmployee,async(req,res)=>{
     try{

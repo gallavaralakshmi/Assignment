@@ -15,17 +15,18 @@ const ViewGoals=()=>{
     useEffect(() => {
         async function fetchGoals() {
           console.log("Inside fetchgoals");
-          const responses = getGoals(location.state.id);
+          const responses = getGoals(location.state.id,location.state.month);
           responses.then((response) => setGoals(response));
         }
         fetchGoals();
       }, []);
     return(
-        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg')"}}>
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
         <Logout/>
-         <h3>Goals of {location.state.name}</h3>
-         {goals.length==0?<span>No goals for {location.state.name}</span>:
-       
+        
+         {goals.length==0?<h3 className="click-links">No goals for {location.state.name}</h3>:
+       <div>
+          <h3 className="click-links">Goals of {location.state.name}</h3>
         <table>
            
           <thead>
@@ -34,6 +35,7 @@ const ViewGoals=()=>{
               <th>Status</th>
               <th>Date</th>
             </tr>
+            </thead>
             <tbody>
            {goals.map((goal)=>(
              <tr>
@@ -42,12 +44,12 @@ const ViewGoals=()=>{
              <td>{goal.created_date}</td>
              </tr>
            ))}
-         
             </tbody>
-          </thead>
+        
         </table>
+        </div>
       }
-      <div style={{textDecoration:"underline",cursor:"pointer"}} onClick={()=>{
+      <div className="click-links" style={{textDecoration:"underline",cursor:"pointer",marginTop:"20px"}} onClick={()=>{
         console.log("Inside viewing other employee goals");
         navigate(-1);
       }}>View Other Employee Goals</div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logout from "../Home/Logout/Logout";
+import "../../CSS/viewgoals.css";
 const Updategoal=()=>{
     const navigate = useNavigate();
     const [goal_name,setGoalname]=useState('');
@@ -44,27 +45,28 @@ const Updategoal=()=>{
 
     }
     return(
-        <div>
-        <Logout/>
-        <form onSubmit={handleForm} className="register-form">
-        <div className="register-header">
-                    <h3>UpdateGoals</h3>
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
+       <Logout/>
+        <div className="update-form">
+        <form onSubmit={handleForm} >
+        <div className="update-header">
+                    <h3 className="click-links">UpdateGoals</h3>
                 </div>
-            <div className="register-field">
+            <div  className="update-fields">
                 <label>Goalname</label>
                 <input type="text" placeholder="Enter your goal" value={goal_name} onChange={(e)=>setGoalname(e.target.value)} />
                 <p></p>
             </div>
-            <div className="register-select" >
-                     <label className="register-select-label">Select Role:</label>
+            <div  className="update-select">
+                     <label className="register-select-label">Select Status</label>
                      <select  value={status} onChange={(e)=>setStatus(e.target.value)}>
                          <option>In Progress</option>
                          <option>Completed</option>
                          <option>Failed</option>
                      </select>
                  </div>
-                 <div className="register-button">
-                     <button type="submit" onClick={()=>{
+                 <div >
+                     <button className="update-button" type="submit" onClick={()=>{
                          console.log("goal updated succesfully");
                          <p>Goal Updated</p>
                          navigate(-1);
@@ -76,6 +78,7 @@ const Updategoal=()=>{
        
         
     </div>
+    </body>
     )
 }
 export default Updategoal;

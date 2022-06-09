@@ -15,12 +15,14 @@ import Adminsadmin from './components/Roles/AdminSAdmin/Adminsadmin';
 import Updategoal from './components/Goals/Updategoal';
 import UpdateStatus from './components/Goals/UpdateStatus';
 
+
 function App() {
 
   return (
     <div>
     <Router>
       <Routes>
+     
       <Route path='/' element={<Home/>}/>
         <Route path='/mainpage' element={<MainPage/>}/>
         <Route path='/employees' element={<Employee/>}/>

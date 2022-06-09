@@ -46,18 +46,20 @@ const Addgoal=()=>{
 
     }
     return(
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
+            <Logout/>
        <div>
-           <Logout/>
-           <form onSubmit={handleForm} className="register-form">
-           <div className="register-header">
-                       <h3>AddGoals</h3>
+           
+           <form onSubmit={handleForm} className="update-form">
+           <div className="update-header">
+                       <h3 className="click-links">AddGoals</h3>
                    </div>
-               <div className="register-field">
+               <div className="update-fields">
                    <label>Goalname</label>
                    <input type="text" placeholder="Enter your goal" value={goal_name} onChange={(e)=>setGoalname(e.target.value)} />
                    <p></p>
                </div>
-               <div className="register-select" >
+               <div className="update-select" >
                         <label className="register-select-label">Select Role:</label>
                         <select  value={status} onChange={(e)=>setStatus(e.target.value)}>
                             <option>In Progress</option>
@@ -65,8 +67,8 @@ const Addgoal=()=>{
                             <option>Failed</option>
                         </select>
                     </div>
-                    <div className="register-button">
-                        <button type="submit" onClick={()=>{
+                    <div >
+                        <button className="update-button" type="submit" onClick={()=>{
                             console.log("goal added succesfully");
                             <p>Goal added</p>
                             navigate(-1);
@@ -78,6 +80,7 @@ const Addgoal=()=>{
           
            
        </div>
+       </body>
     )
 }
 export default Addgoal;

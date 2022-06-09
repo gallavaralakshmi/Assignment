@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Logout from "../Home/Logout/Logout";
+import "../../CSS/viewgoals.css";
 const UpdateStatus=()=>{
     const navigate = useNavigate();
     const [status,setStatus]=useState('');
@@ -33,22 +34,24 @@ const UpdateStatus=()=>{
 
     }
     return(
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
+             <Logout/>
         <div>
-        <Logout/>
-        <form onSubmit={handleForm} className="register-form">
-        <div className="register-header">
-                    <h3>UpdateStatus</h3>
+       
+        <form onSubmit={handleForm} className="update-form">
+        <div className="update-header">
+                    <h3 className="click-links">UpdateStatus</h3>
                 </div>
-            <div className="register-select" >
-                     <label className="register-select-label">Select Role:</label>
+            <div className="update-select" >
+                     <label >Select Status:</label>
                      <select  value={status} onChange={(e)=>setStatus(e.target.value)}>
                          <option>In Progress</option>
                          <option>Completed</option>
                          <option>Failed</option>
                      </select>
                  </div>
-                 <div className="register-button">
-                     <button type="submit" onClick={()=>{
+                 <div >
+                     <button className="update-button" type="submit" onClick={()=>{
                          console.log("goal updated succesfully");
                          <p>Status Updated</p>
                          navigate(-1);
@@ -60,6 +63,7 @@ const UpdateStatus=()=>{
        
         
     </div>
+    </body>
     )
 }
 export default UpdateStatus;

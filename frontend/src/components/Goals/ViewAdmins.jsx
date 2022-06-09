@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Logout from "../Home/Logout/Logout";
 import AdminSAdmin from "../Roles/AdminSAdmin/AdminSAdmin";
 import { getAdmins } from "../Roles/SAdmin/sadminapi";
+import "../../CSS/viewgoals.css";
 const ViewAdmins=()=>{
     const [admins,setAdmins]=useState([]);
     const navigate=useNavigate();
@@ -21,12 +22,12 @@ const ViewAdmins=()=>{
         fetchAdmins();
       }, []);
     return(
-        <>
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
         <Logout/>
-         {admins.length==0?<span>No Admins</span>:
-       
-        <table>
-           
+         {admins.length==0?<h3 className="click-links">No Admins</h3>:
+     <div>
+       <h3 className="click-links">Admins</h3>
+        <table>  
           <thead>
             <tr>
               <th>Name</th>
@@ -34,6 +35,7 @@ const ViewAdmins=()=>{
               <th>GDO</th>
               <th>Employees</th>
             </tr>
+            </thead>
             <tbody>
            {admins.map((admin)=>(
              <tr>
@@ -42,16 +44,16 @@ const ViewAdmins=()=>{
              <td>{admin.gdo}</td>
              <td style={{textDecoration:"underline",cursor:"pointer"}} onClick={()=>{
                console.log("ho"+admin.id);
-               navigate("/adminsadmin",{state:{id:admin.id,name:admin.name}})
+               navigate("/adminsadmin",{state:{id:admin.id,name:admin.name,gdo:admin.gdo}})
              }}>View Employees</td>
              </tr>
            ))}
          
             </tbody>
-          </thead>
         </table>
+        </div>
       }
-        </>
+        </body>
     )
 }
 export default ViewAdmins;

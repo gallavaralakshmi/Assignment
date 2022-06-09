@@ -22,3 +22,41 @@ table{
   .viewgoals-button:hover{
       opacity: 0.5;
   }
+  .click-links{
+    text-align: center;
+  }
+
+.update-form{
+  max-width: 1500px;
+  margin: auto;       
+}
+.update-fields{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  width: 30%;
+  margin: 5px auto 5px auto;
+}
+.update-select{
+  text-align: center;
+    padding: 2px;
+    margin: auto;
+}
+.update-select label{
+  padding: 2px;
+}
+.update-button{
+  display: flex;
+  text-align: center;
+  margin: 10px auto 10px auto;
+}
+.update-button:hover{
+  opacity:0.5;
+}
+  .image{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

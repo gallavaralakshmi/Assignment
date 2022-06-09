@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Logout from "../../Home/Logout/Logout";
 import { getEmployeesOfAdmin } from "./adminsadminapi";
 const Adminsadmin=()=>{
     const location=useLocation();
@@ -22,9 +23,10 @@ const Adminsadmin=()=>{
        fetchEmployeesOfAdmin();
    },[]);
     return(
-        <>
+        <body style={{ backgroundImage: "url('https://www.monash.edu/__data/assets/image/0011/2429183/geometric-gradient-blue-white-pink-banner.jpg') " ,minHeight:"100vh"}}>
+            <Logout/>
            {employees.length==0?<span>No Employees under you</span>:
-           <div> <h3>Employees under {location.state.name} are:</h3>
+           <div> <h3 className="click-links">Employees under {location.state.name} of {location.state.gdo} </h3>
         <table>
            
             <thead>
@@ -37,7 +39,7 @@ const Adminsadmin=()=>{
                     <td>{employee.name}</td>
                     <td style={{textDecoration:"underline",cursor:"pointer"}} onClick={()=>{
                         console.log(`employee id:${employee.id} ${employee.name}`);
-                    navigate("/viewgoals",{state:{id:employee.id,name:employee.name}})}}
+                    navigate("/viewgoals",{state:{id:employee.id,name:employee.name,month:6}})}}
                     >View Goals</td>
                 </tr>
                 ))}
@@ -45,12 +47,12 @@ const Adminsadmin=()=>{
         </table>
         </div>
  }  
-  <div style={{textDecoration:"underline",cursor:"pointer"}} onClick={()=>{
+  <div className="click-links" style={{textDecoration:"underline",cursor:"pointer",marginTop:"20px"}} onClick={()=>{
         console.log("Inside viewing other admins");
         navigate(-1);
       }}>View Other Admins</div>
         
-        </>
+        </body>
     )
 }
 export default Adminsadmin;

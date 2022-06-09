@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faTwitter, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import "../../../CSS/footer.css";
 const Footer = () => (
-  <>
-    <footer>
+ 
+  <div className="home-container">
+   <p style={{height:"90px"}}></p>
       <div class="social-container">
         <h3>Follow US</h3>
         <a href="https://www.linkedin.com/company/west-agile-labs"
@@ -24,7 +25,8 @@ const Footer = () => (
           <FontAwesomeIcon icon={faInstagram} size="2x" />
         </a>
       </div>
-    </footer>
-  </>
+    
+    </div>
+  
 )
 export default Footer;

@@ -1,6 +1,12 @@
+.home-container{
+  background-color: #d9e7f5;
+  border: 1px solid #d9e7f5;
+}
 .social-container {
-    background: #eee;
+    background:  #d9e7f5;
     padding: 25px 50px;
+    display: flex;
+    justify-content: center;
    
   }
   a.social {

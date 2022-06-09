@@ -17,7 +17,7 @@ import { Nav } from "react-bootstrap";
     }}
     >
       <Nav.Item>
-        <Nav.Link href="mainpage">Logout</Nav.Link>
+        <Nav.Link href="mainpage" style={{fontSize:"22px"}}>Logout</Nav.Link>
       </Nav.Item>
     </Nav>
          </>
